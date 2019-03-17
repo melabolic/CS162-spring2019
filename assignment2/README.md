@@ -7,11 +7,12 @@ This is the Kanban Board that I created for assignment 2 of CS162: Software Deve
 assignment2 (root folder):
 - requirements.txt
 - flask
--     app.py
+  - app.py
+  - templates
+    - kanban.html
 - tests
--     test_app.py
-- templates
--     kanban.html
+  - test_app.py
+
 
 ### To run the code:
 Simply unzip the .zip file and boot up a virtual engine inside the root folder, as so:
