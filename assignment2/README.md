@@ -6,7 +6,8 @@ This is the Kanban Board that I created for assignment 2 of CS162: Software Deve
 ### Project Structure:
 assignment2 (root folder):
 - requirements.txt
-- app.py
+- flask
+-     app.py
 - tests
 -     test_app.py
 - templates
@@ -21,7 +22,7 @@ Simply unzip the .zip file and boot up a virtual engine inside the root folder, 
 Next, run the following code to execute the program:
 
 `pip3 install -r requirements.txt`
-`python3 app.py`
+`python3 /flask/app.py`
 
 Run `localhost:5000` in your browser to see the Kanban board.
 
