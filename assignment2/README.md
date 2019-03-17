@@ -5,12 +5,12 @@ This is the Kanban Board that I created for assignment 2 of CS162: Software Deve
 
 ### Project Structure:
 assignment2 (root folder):
-      - requirements.txt
-      - app.py
-      - tests
-            - test_app.py
-      - templates
-            - kanban.html
+- requirements.txt
+- app.py
+- tests
+-     test_app.py
+- templates
+-     kanban.html
 
 ### To run the code:
 Simply unzip the .zip file and boot up a virtual engine inside the root folder, as so:
