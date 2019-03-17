@@ -6,10 +6,9 @@ This is the Kanban Board that I created for assignment 2 of CS162: Software Deve
 ### Project Structure:
 assignment2 (root folder):
 - requirements.txt
-- flask
-  - app.py
-  - templates
-    - kanban.html
+- app.py
+- templates
+  - kanban.html
 - tests
   - test_app.py
 
