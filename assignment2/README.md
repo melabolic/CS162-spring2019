@@ -22,7 +22,7 @@ Simply unzip the .zip file and boot up a virtual engine inside the root folder, 
 Next, run the following code to execute the program:
 
 `pip3 install -r requirements.txt`
-`python3 /flask/app.py`
+`python3 app.py`
 
 Run `localhost:5000` in your browser to see the Kanban board.
 
