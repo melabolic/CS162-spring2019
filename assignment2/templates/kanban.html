@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- CSS styling -->
+<head>
+<meta charset="utf-8">
+<style>
+  header {
+    text-align: center;
+    font-family: Georgia;
+    font-size: 20px;
+    color: white;
+    background-color: navy;
+    margin: 0px;
+    padding: 20px;
+  }
+  h2 {
+    text-align: center;
+    margin: 20px;
+  }
+  fieldset {
+    margin: 10px;
+    border-radius: 15px;
+    background-color: lightgrey;
+  }
+  .row-add-task {
+    float: center;
+    margin-bottom: 30px;
+  }
+  .column-todo {
+    float: left;
+    width: 31%;
+    border: solid blue;
+    border-radius: 10px;
+    padding: 8.5px;
+    margin: 3px;
+    background-color: white;
+  }
+  .column-doing {
+    float: left;
+    width: 31%;
+    border: solid orange;
+    border-radius: 10px;
+    padding: 8.5px;
+    margin: 3px;
+    background-color: white;
+  }
+  .column-done {
+    float: right;
+    width: 31%;
+    border: solid green;
+    border-radius: 10px;
+    padding: 8.5px;
+    margin: 3px;
+    background-color: white;
+  }
+  .column-taskdesc {
+    padding: 10px;
+    float: left;
+    width: 250px;
+    text-align:;
+  }
+  .column-buttons {
+    float: right;
+    width: 20%;
+  }
+  .card {
+    background-color: lightgrey;
+    border: solid;
+    border-width: thin;
+    border-color: grey;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  .add { text-align: center;}
+  .row:after {
+    content: " ";
+    display: table;
+    clear: both;
+  }
+</style>
+<title>JW's Kanban Board</title>
+</head>
+
+<!-- This is the code for the main board -->
+<header>
+  <h1>Kanban Board</h1>
+</header>
+
+<body style="background-color: #89cff0">
+  <div class="row-add-task">
+    <p style="font-size: 30px; text-align: center; margin-bottom: 5px;">
+      <strong>Add a New Task</strong>
+    </p>
+    <form class="add" method="POST" action="/">
+      <input type="text" name="title" style="width: 200px;">
+      <!-- <input type="hidden" value="todo" name="status"> -->
+      <select name="status">
+        <option value="todo">To-do
+          <!-- To-do<input type="hidden" value="todo" name="status"> -->
+        </option>
+        <option value="doing">Doing
+          <!-- Doing<input type="hidden" value="doing" name="status"> -->
+        </option>
+      </select>
+      <input type="submit" value="Add">
+    </form>
+  </div>
+
+  <div class="column-todo" >
+    <h2>To-Do</h2>
+    {% for task in todo %}
+      <fieldset>
+        <column class="column-taskdesc">
+          {{task.title}}<br>
+        </column>
+        <column class="column-buttons">
+          <form method="POST" action="./delete">
+            <input type="hidden" value="{{task.title}}" name="title">
+            <input type="submit" value="Delete" style="width: 73px;">
+          </form>
+          <form method="POST" action="./doing">
+            <input type="hidden" value="{{task.title}}" name="title">
+            <input type="submit" value="Doing Now" style="border-radius: 5px;">
+          </form>
+        </column>
+      </fieldset>
+    {% endfor %}
+  </div>
+
+  <div class="column-doing">
+    <h2>Doing</h2>
+    {% for task in doing %}
+      <fieldset>
+        <column class="column-taskdesc">
+          {{task.title}}<br>
+        </column>
+        <column class="column-buttons">
+          <form method="POST" action="./delete">
+            <input type="hidden" value="{{task.title}}" name="title">
+            <input type="submit" value="Delete" style="width: 73px;">
+          </form>
+          <form method="POST" action="./done">
+            <input type="hidden" value="{{task.title}}" name="title">
+            <input type="submit" value="Done!" style="width: 73px; border-radius: 5px;">
+          </form>
+        </column>
+      </fieldset>
+    {% endfor %}
+  </div>
+
+  <div class="column-done">
+    <h2>Done</h2>
+    {% for task in done %}
+      <fieldset>
+        <column class="column-taskdesc">
+          {{task.title}}<br>
+        </column>
+        <column class="column-buttons">
+          <form method="POST" action="./delete">
+            <input type="hidden" value="{{task.title}}" name="title">
+            <input type="submit" value="Delete" style="width: 73px;">
+          </form>
+        </column>
+      </fieldset>
+    {% endfor %}
+  </div>
+
+  </div>
+</body>
+</html>
